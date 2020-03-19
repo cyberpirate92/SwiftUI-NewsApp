@@ -23,30 +23,27 @@ struct ContentView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            HStack {
-                VStack(alignment: .leading) {
-                    Text("Top Headlines").font(.title)
-                    Text("Updated just now").font(.callout).foregroundColor(Color.gray)
-                }.foregroundColor(Color.white).padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
-                Spacer()
-            }.background(Color.black)
-            List(list.items) {
-                article in VStack {
-                    URLImage(article.imageUrl, content: {
-                        $0.image.resizable().aspectRatio(contentMode: .fill)
-                    })
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text(article.name).font(.headline)
-                        Text(article.description).font(.subheadline).foregroundColor(.gray)
-                        Spacer()
+            NavigationView {
+                List(list.items) {
+                    article in NavigationLink(destination: NewsDetailView(article: article)) {
+                        VStack {
+                            URLImage(article.imageUrl, content: {
+                                $0.image.resizable().aspectRatio(contentMode: .fill)
+                            })
+                            VStack(alignment: .leading, spacing: 5) {
+                                Text(article.name).font(.headline)
+                                Text(article.description).font(.subheadline).foregroundColor(.gray)
+                                Spacer()
+                            }
+                            HStack {
+                                Text(article.sourceWebsite ?? "Unknown source").font(.footnote)
+                                Spacer()
+                                Text(Utils.getFormattedDateString(someDate: article.date)).font(.footnote)
+                            }
+                            Spacer()
+                        }
                     }
-                    HStack {
-                        Text(article.sourceWebsite ?? "Unknown source").font(.footnote)
-                        Spacer()
-                        Text(Utils.getFormattedDateString(someDate: article.date)).font(.footnote)
-                    }
-                    Spacer()
-                }
+                }.navigationBarTitle(Text("Top Headlines"), displayMode: .inline)
             }
         }
     }

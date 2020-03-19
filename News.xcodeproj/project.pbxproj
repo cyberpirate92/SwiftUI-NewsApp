@@ -11,8 +11,9 @@
 		3760316D2420E5FB000DC21F /* FetchNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3760316C2420E5FB000DC21F /* FetchNews.swift */; };
 		376031712420FA28000DC21F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376031702420FA28000DC21F /* Constants.swift */; };
 		376031732420FCAD000DC21F /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376031722420FCAD000DC21F /* ListItem.swift */; };
-		37603176242236C5000DC21F /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 37603175242236C5000DC21F /* SwiftPackageProductDependency */; };
+		37603176242236C5000DC21F /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 37603175242236C5000DC21F /* URLImage */; };
 		3760317824224CDF000DC21F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3760317724224CDF000DC21F /* Utils.swift */; };
+		3760317C24241314000DC21F /* NewsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3760317B24241314000DC21F /* NewsDetailView.swift */; };
 		37845720241FF7E100073398 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3784571F241FF7E100073398 /* AppDelegate.swift */; };
 		37845722241FF7E100073398 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37845721241FF7E100073398 /* SceneDelegate.swift */; };
 		37845724241FF7E100073398 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37845723241FF7E100073398 /* ContentView.swift */; };
@@ -38,6 +39,7 @@
 		376031702420FA28000DC21F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		376031722420FCAD000DC21F /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		3760317724224CDF000DC21F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		3760317B24241314000DC21F /* NewsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailView.swift; sourceTree = "<group>"; };
 		3784571C241FF7E100073398 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3784571F241FF7E100073398 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37845721241FF7E100073398 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37603176242236C5000DC21F /* BuildFile in Frameworks */,
+				37603176242236C5000DC21F /* URLImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +97,7 @@
 				3784571F241FF7E100073398 /* AppDelegate.swift */,
 				37845721241FF7E100073398 /* SceneDelegate.swift */,
 				37845723241FF7E100073398 /* ContentView.swift */,
+				3760317B24241314000DC21F /* NewsDetailView.swift */,
 				37845725241FF7E200073398 /* Assets.xcassets */,
 				3784572A241FF7E200073398 /* LaunchScreen.storyboard */,
 				3784572D241FF7E200073398 /* Info.plist */,
@@ -149,7 +152,7 @@
 			);
 			name = News;
 			packageProductDependencies = (
-				37603175242236C5000DC21F /* SwiftPackageProductDependency */,
+				37603175242236C5000DC21F /* URLImage */,
 			);
 			productName = News;
 			productReference = 3784571C241FF7E100073398 /* News.app */;
@@ -202,7 +205,7 @@
 			);
 			mainGroup = 37845713241FF7E100073398;
 			packageReferences = (
-				37603174242236C5000DC21F /* RemoteSwiftPackageReference */,
+				37603174242236C5000DC21F /* XCRemoteSwiftPackageReference "url-image" */,
 			);
 			productRefGroup = 3784571D241FF7E100073398 /* Products */;
 			projectDirPath = "";
@@ -240,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3760316D2420E5FB000DC21F /* FetchNews.swift in Sources */,
+				3760317C24241314000DC21F /* NewsDetailView.swift in Sources */,
 				3760316B2420E415000DC21F /* NewsItem.swift in Sources */,
 				376031732420FCAD000DC21F /* ListItem.swift in Sources */,
 				37845720241FF7E100073398 /* AppDelegate.swift in Sources */,
@@ -509,7 +513,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		37603174242236C5000DC21F /* RemoteSwiftPackageReference */ = {
+		37603174242236C5000DC21F /* XCRemoteSwiftPackageReference "url-image" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
 			requirement = {
@@ -520,9 +524,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		37603175242236C5000DC21F /* SwiftPackageProductDependency */ = {
+		37603175242236C5000DC21F /* URLImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 37603174242236C5000DC21F /* RemoteSwiftPackageReference */;
+			package = 37603174242236C5000DC21F /* XCRemoteSwiftPackageReference "url-image" */;
 			productName = URLImage;
 		};
 /* End XCSwiftPackageProductDependency section */
