@@ -28,7 +28,9 @@ struct ContentView: View {
                     article in NavigationLink(destination: NewsDetailView(article: article)) {
                         VStack {
                             if (article.imageUrl != nil) {
-                                URLImage(article.imageUrl!, content: {
+                                URLImage(article.imageUrl!, delay: 0.25, placeholder: {_ in
+                                    Image("placeholder-image").resizable().aspectRatio(contentMode: .fill)
+                                }, content: {
                                     $0.image.resizable().aspectRatio(contentMode: .fill)
                                 })
                             } else {

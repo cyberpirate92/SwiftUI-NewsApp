@@ -22,14 +22,18 @@ struct NewsDetailView: View {
     var body: some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 20) {
-                Text(article.name).font(.largeTitle)
+                Text(article.name).font(.largeTitle).lineLimit(nil)
                 VStack(alignment: .leading, spacing: 5) {
-                    if (article.imageUrl != nil) {
-                        URLImage(article.imageUrl!, content: {
-                            $0.image.resizable().aspectRatio(contentMode: .fit)
-                        })
-                    } else {
-                        Image("placeholder-image").resizable().aspectRatio(contentMode: .fit)
+                    HStack(alignment: .center) {
+                        if (article.imageUrl != nil) {
+                            URLImage(article.imageUrl!, placeholder: {_ in
+                                Image("placeholder-image").resizable().aspectRatio(contentMode: .fit)
+                            }, content: {
+                                $0.image.resizable().aspectRatio(contentMode: .fit)
+                            })
+                        } else {
+                            Image("placeholder-image").resizable().aspectRatio(contentMode: .fit)
+                        }
                     }
                     HStack {
                         Text(article.sourceWebsite ?? "Unknown").font(.footnote).foregroundColor(.gray)
@@ -48,7 +52,7 @@ struct NewsDetailView: View {
                         UIApplication.shared.open(url!)
                     }, label: {
                         Text("Read full article")
-                    }).disabled(article.articleUrl.isEmpty)
+                    }).disabled(article.articleUrl.isEmpty).padding().frame(maxWidth: .infinity).border(Color.blue).padding()
                 }
             }.padding()
             Spacer()
