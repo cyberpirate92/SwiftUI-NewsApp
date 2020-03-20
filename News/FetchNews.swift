@@ -10,7 +10,7 @@ import Foundation
 
 class NewsApi {
     
-    static let DEFAULT_COUNTRY = "in"
+    static let DEFAULT_COUNTRY = "us"
     static let DEFAULT_CATEGORY = "general"
     static let DEFAULT_PAGE_SIZE = 100
     
@@ -21,8 +21,9 @@ class NewsApi {
     static func fetchTopHeadlines(completion: @escaping (TopHeadlinesResponse?) -> Void) {
         let session = URLSession.shared
         var urlComponents = URLComponents(string: getApiUrl())!
+        print("Identified Locale: " + (Locale.current.regionCode ?? "Unknown"))
         urlComponents.queryItems = [
-            URLQueryItem(name: "country", value: DEFAULT_COUNTRY),
+            URLQueryItem(name: "country", value: (Locale.current.regionCode ?? DEFAULT_COUNTRY).lowercased()),
             URLQueryItem(name: "category", value: DEFAULT_CATEGORY),
             URLQueryItem(name: "pageSize", value: "\(DEFAULT_PAGE_SIZE)"),
             URLQueryItem(name: "apikey", value: NEWS_API_KEY)

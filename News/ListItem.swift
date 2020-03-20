@@ -13,7 +13,7 @@ struct ListItem: Identifiable {
     var name: String
     var description: String
     var isFavorite: Bool
-    var imageUrl: URL
+    var imageUrl: URL?
     var date: Date?
     var sourceWebsite: String?
     var body: String?
@@ -29,8 +29,7 @@ struct ListItem: Identifiable {
         id = UUID()
         self.description = description ?? "No description provided"
         self.isFavorite = false
-        let articleImageUrl = imageUrl ?? "https://google.com"
-        self.imageUrl = URL(string: articleImageUrl)!
+        self.imageUrl = imageUrl != nil ? URL(string: imageUrl!) : nil
         self.date = date
         self.sourceWebsite = source
         self.body = body

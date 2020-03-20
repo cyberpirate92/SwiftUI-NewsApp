@@ -27,9 +27,13 @@ struct ContentView: View {
                 List(list.items) {
                     article in NavigationLink(destination: NewsDetailView(article: article)) {
                         VStack {
-                            URLImage(article.imageUrl, content: {
-                                $0.image.resizable().aspectRatio(contentMode: .fill)
-                            })
+                            if (article.imageUrl != nil) {
+                                URLImage(article.imageUrl!, content: {
+                                    $0.image.resizable().aspectRatio(contentMode: .fill)
+                                })
+                            } else {
+                                Image("placeholder-image").resizable().aspectRatio(contentMode: .fill)
+                            }
                             VStack(alignment: .leading, spacing: 5) {
                                 Text(article.name).font(.headline)
                                 Text(article.description).font(.subheadline).foregroundColor(.gray)
@@ -43,7 +47,7 @@ struct ContentView: View {
                             Spacer()
                         }
                     }
-                }.navigationBarTitle(Text("Top Headlines"), displayMode: .inline)
+                }.navigationBarTitle(Text("Top Headlines"))
             }
         }
     }

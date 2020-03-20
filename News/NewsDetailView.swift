@@ -24,9 +24,13 @@ struct NewsDetailView: View {
             VStack(alignment: .leading, spacing: 20) {
                 Text(article.name).font(.largeTitle)
                 VStack(alignment: .leading, spacing: 5) {
-                    URLImage(article.imageUrl, content: {
-                        $0.image.resizable().aspectRatio(contentMode: .fit)
-                    })
+                    if (article.imageUrl != nil) {
+                        URLImage(article.imageUrl!, content: {
+                            $0.image.resizable().aspectRatio(contentMode: .fit)
+                        })
+                    } else {
+                        Image("placeholder-image").resizable().aspectRatio(contentMode: .fit)
+                    }
                     HStack {
                         Text(article.sourceWebsite ?? "Unknown").font(.footnote).foregroundColor(.gray)
                         Spacer()
